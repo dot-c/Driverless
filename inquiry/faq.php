@@ -1,6 +1,6 @@
 <?php
 
-	session_start();
+	//session_start();
 
 
 	include('db-connection.php');
@@ -15,7 +15,7 @@
 
 	if((empty($name)) || (empty($email)) || (empty($phone)) || (empty($message)) || (empty($subject))){
 		
-		$_SESSION['contact-error'] = true;
+		//$_SESSION['contact-error'] = true;
 		header("Location:contact.php#contact");
 		$_SESSION['error-message'] = "All field are required";
 		

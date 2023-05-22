@@ -72,31 +72,30 @@ function addInquiry(){
 	global $connection;
 		
 	if(isset($_POST['faq-submit'])){
-		//Initialize for values
+	
 		$faq_name = $_POST['faq-name'];
 		$faq_email = $_POST['faq-email'];
 		$faq_phone = $_POST['faq-phone'];
 		$faq_subject = $_POST['faq-subject'];
 		$faq_message = $_POST['faq-message'];
 		
-		//Sanitize form values
+		
 		$faq_name = mysqli_real_escape_string($connection, $faq_name);
 		$faq_email = mysqli_real_escape_string($connection, $faq_email);
 		$faq_phone = mysqli_real_escape_string($connection, $faq_phone);
 		$faq_subject = mysqli_real_escape_string($connection, $faq_subject);
 		$faq_message = mysqli_real_escape_string($connection, $faq_message);
-		//validate values
+		
 		if((empty($faq_name)) || (empty($faq_email)) || (empty($faq_phone)) || (empty($faq_subject)) || (empty($faq_message))){
 				
 				echo "<div class='alert alert-danger' role='alert'>All fields are required</div>";
 
 		}else{
-				//QUery to create question in database
+		
 				$query = "INSERT INTO inquiries(name, email, phone_no, subject, message,user_id) VALUES('$faq_name','$faq_email','$faq_phone','$faq_subject','$faq_message','".$_SESSION['user']."')";
 				
 				$result = mysqli_query($connection, $query);
 				
-				//check if query has ran and notify user
 				if($result){
 
 					echo "<div class='alert alert-success' role='alert'>Your Question has been sent</div>";

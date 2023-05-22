@@ -54,7 +54,7 @@
 				<?php 
 					
 					
-					echo "<div class='alert alert-danger' role='alert'>".$_SESSION['error-message']."</div>";
+					//echo "<div class='alert alert-danger' role='alert'>".$_SESSION['error-message']."</div>";
 				
 											
 				?>
